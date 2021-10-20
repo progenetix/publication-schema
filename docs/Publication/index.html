@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: Publication - Schema for publications in the Progenetix database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: Publication";
+    var mkdocs_page_input_path = "Publication.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Schema for publications in the Progenetix database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Schema for publications in the Progenetix database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: Publication</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-publication">Class: Publication</h1>
+<p>A Publication represents basic information about a scientific article used in the Progenetix resource to indicate and annotate sources for genomic screening experiments.</p>
+<p>URI: <a href="https://github.com/progenetix/Publication">pgxpub:Publication</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TechnologyCounts],[SampleTypeCount],[SampleTypeCount]&lt;sample_types%200..*-++[Publication&#124;id:string;label:string%20%3F;_id:string%20%3F;pubmedid:string%20%3F;pmcid:string%20%3F;title:string%20%3F;authors:string%20%3F;journal:string%20%3F;pubYear:string%20%3F;abstract:string%20%3F;status:string%20%3F;note:string%20%3F;provenance:string%20%3F;info:string%20%3F;updated:string%20%3F;progenetix_curator:string%20%3F;progenetix_use:string%20%3F],[TechnologyCounts]&lt;counts%200..1-++[Publication],[Contact]&lt;contact%200..1-++[Publication],[Contact]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TechnologyCounts],[SampleTypeCount],[SampleTypeCount]&lt;sample_types%200..*-++[Publication&#124;id:string;label:string%20%3F;_id:string%20%3F;pubmedid:string%20%3F;pmcid:string%20%3F;title:string%20%3F;authors:string%20%3F;journal:string%20%3F;pubYear:string%20%3F;abstract:string%20%3F;status:string%20%3F;note:string%20%3F;provenance:string%20%3F;info:string%20%3F;updated:string%20%3F;progenetix_curator:string%20%3F;progenetix_use:string%20%3F],[TechnologyCounts]&lt;counts%200..1-++[Publication],[Contact]&lt;contact%200..1-++[Publication],[Contact]" /></a></p>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../label/">label</a>  <sub>0..1</sub><ul>
+<li>Description: An informative text which e.g. can serve to indicate the meaning of id values but should not be used as identifier.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication___id/">➞_id</a>  <sub>0..1</sub><ul>
+<li>Description: internal identifier; not part of the schema per se but included for convenience</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__pubmedid/">➞pubmedid</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__pmcid/">➞pmcid</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__title/">➞title</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__authors/">➞authors</a>  <sub>0..1</sub><ul>
+<li>Description: Author names, as usually represented in article citations (e.g. comma-concatenated).</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__journal/">➞journal</a>  <sub>0..1</sub><ul>
+<li>Description: Journal name, as usually represented in article citations.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__pubYear/">➞pubYear</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__abstract/">➞abstract</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__contact/">➞contact</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../Contact/">Contact</a></li>
+</ul>
+</li>
+<li><a href="../publication__status/">➞status</a>  <sub>0..1</sub><ul>
+<li>Description: The status label is used to * disambiguate between Progenetix collection publications and "excluded" ones (i.e. not containing original genotyping data * add some information about reasons for the exclusion, e.g. for later access to currently out off scope articles</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__counts/">➞counts</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../TechnologyCounts/">TechnologyCounts</a></li>
+</ul>
+</li>
+<li><a href="../publication__sample_types/">➞sample_types</a>  <sub>0..*</sub><ul>
+<li>Range: <a href="../SampleTypeCount/">SampleTypeCount</a></li>
+</ul>
+</li>
+<li><a href="../publication__note/">➞note</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__provenance/">➞provenance</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__info/">➞info</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__updated/">➞updated</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__progenetix_curator/">➞progenetix_curator</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../publication__progenetix_use/">➞progenetix_use</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

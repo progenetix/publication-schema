@@ -1,0 +1,495 @@
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix pgxpub: <https://github.com/progenetix/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pgxpub:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    dcterms:title "A text providing unstructured or semi-structured information about the thing." ;
+    rdfs:range linkml:String .
+
+<https://progenetix.org/services/schemas/Publication> a owl:Ontology ;
+    rdfs:label "hello-world" ;
+    IAO:0000700 pgxpub:Contact,
+        pgxpub:GeoJSONgeometry,
+        pgxpub:GeoJSONproperties,
+        pgxpub:GeoLocation,
+        pgxpub:Provenance,
+        pgxpub:Publication,
+        pgxpub:SampleTypeCount,
+        pgxpub:TechnologyCounts ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "Progenetix `Publication`" ;
+    pav:version "2021-10-15" ;
+    linkml:generation_date "2021-10-15 15:36" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "publication.yaml" ;
+    linkml:source_file_date "Fri Oct 15 15:36:13 2021" ;
+    linkml:source_file_size 3905 .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+<http://example.org/UNKNOWN/schema/abstract> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "abstract" ;
+    rdfs:range linkml:String .
+
+<http://example.org/UNKNOWN/schema/headline> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "title" ;
+    rdfs:range linkml:String .
+
+<http://example.org/UNKNOWN/schema/latitude> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "latitude" ;
+    rdfs:range linkml:Float ;
+    skos:definition "Geographic latitude of the location." .
+
+<http://example.org/UNKNOWN/schema/longitude> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "longitude" ;
+    rdfs:range linkml:Float ;
+    skos:definition "Geographic longitude of the location." .
+
+pgxpub:ISO3166alpha3 a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ISO3166alpha3" ;
+    rdfs:range linkml:String .
+
+pgxpub:Provenance a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Provenance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass pgxpub:GeoLocation ;
+            owl:onProperty pgxpub:geo_location ] .
+
+pgxpub:Publication a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Publication" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/identifier> ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/identifier> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass pgxpub:TechnologyCounts ;
+            owl:onProperty pgxpub:counts ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:status ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:info ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:pubYear ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:note ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:progenetix_use ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/identifier> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:authors ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass pgxpub:Contact ;
+            owl:onProperty pgxpub:contact ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:updated ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:provenance ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:progenetix_curator ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:journal ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom pgxpub:SampleTypeCount ;
+            owl:onProperty pgxpub:sample_types ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/headline> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/abstract> ] ;
+    skos:definition "A Publication represents basic information about a scientific article used in the Progenetix resource to indicate and annotate sources for genomic screening experiments." .
+
+pgxpub:_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "_id" ;
+    rdfs:range linkml:String ;
+    skos:definition "internal identifier; not part of the schema per se but included for convenience" .
+
+pgxpub:acgh a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "acgh" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:affiliation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "affiliation" ;
+    rdfs:range linkml:String ;
+    skos:definition "affiliation - usually institution - of the contact" .
+
+pgxpub:arraymap a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "arraymap" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:authors a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "authors" ;
+    rdfs:range linkml:String ;
+    skos:definition "Author names, as usually represented in article citations (e.g. comma-concatenated)." .
+
+pgxpub:ccgh a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ccgh" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:city a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "city" ;
+    rdfs:range linkml:String .
+
+pgxpub:contact a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contact" ;
+    rdfs:range pgxpub:Contact .
+
+pgxpub:continent a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "continent" ;
+    rdfs:range linkml:String .
+
+pgxpub:coordinates a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "coordinates" ;
+    rdfs:range linkml:Float .
+
+pgxpub:count a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "count" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:country a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "country" ;
+    rdfs:range linkml:String .
+
+pgxpub:counts a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "counts" ;
+    rdfs:range pgxpub:TechnologyCounts .
+
+pgxpub:email a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "email" ;
+    rdfs:range linkml:String ;
+    skos:definition "email" .
+
+pgxpub:genomes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "genomes" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:geo_location a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "geo_location" ;
+    rdfs:range pgxpub:GeoLocation .
+
+pgxpub:geometry a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "geometry" ;
+    rdfs:range pgxpub:GeoJSONgeometry .
+
+pgxpub:info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "info" ;
+    rdfs:range linkml:String .
+
+pgxpub:journal a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "journal" ;
+    rdfs:range linkml:String ;
+    skos:definition "Journal name, as usually represented in article citations." .
+
+pgxpub:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String ;
+    skos:definition "human readable name examples: * \"Rasd-Coduresa Diziet Embless Sma da' Marenhide\" * Ion Tichy" .
+
+pgxpub:ngs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ngs" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:note a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "note" ;
+    rdfs:range linkml:String .
+
+pgxpub:precision a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "precision" ;
+    rdfs:range linkml:String .
+
+pgxpub:progenetix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "progenetix" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:progenetix_curator a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "progenetix_curator" ;
+    rdfs:range linkml:String .
+
+pgxpub:progenetix_use a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "progenetix_use" ;
+    rdfs:range linkml:String .
+
+pgxpub:properties a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "properties" ;
+    rdfs:range pgxpub:GeoJSONproperties .
+
+pgxpub:provenance a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "provenance" ;
+    rdfs:range linkml:String .
+
+pgxpub:pubYear a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pubYear" ;
+    rdfs:range linkml:String .
+
+pgxpub:sample_types a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sample_types" ;
+    rdfs:range pgxpub:SampleTypeCount .
+
+pgxpub:status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "status" ;
+    rdfs:range linkml:String ;
+    skos:definition "The status label is used to * disambiguate between Progenetix collection publications and \"excluded\" ones (i.e. not containing original genotyping data * add some information about reasons for the exclusion, e.g. for later access to currently out off scope articles" .
+
+pgxpub:updated a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "updated" ;
+    rdfs:range linkml:String .
+
+pgxpub:wes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "wes" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:wgs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "wgs" ;
+    rdfs:range linkml:Integer .
+
+pgxpub:type a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+pgxpub:Contact a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Contact" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:email ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:affiliation ] .
+
+pgxpub:GeoJSONgeometry a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GeoJSONgeometry" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty pgxpub:coordinates ] .
+
+pgxpub:GeoJSONproperties a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GeoJSONproperties" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:city ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:precision ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:ISO3166alpha3 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Float ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/longitude> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:continent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Float ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/latitude> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:label ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:country ] .
+
+pgxpub:GeoLocation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GeoLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass pgxpub:GeoJSONgeometry ;
+            owl:onProperty pgxpub:geometry ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass pgxpub:GeoJSONproperties ;
+            owl:onProperty pgxpub:properties ] .
+
+pgxpub:SampleTypeCount a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SampleTypeCount" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/UNKNOWN/schema/identifier> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:count ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty pgxpub:label ] .
+
+pgxpub:TechnologyCounts a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TechnologyCounts" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:progenetix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:wgs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:ngs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:ccgh ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:wes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:acgh ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:genomes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty pgxpub:arraymap ] .
+
+pgxpub:label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "label" ;
+    rdfs:range linkml:String ;
+    skos:definition "An informative text which e.g. can serve to indicate the meaning of id values but should not be used as identifier." .
+
+<http://example.org/UNKNOWN/schema/identifier> a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+
+
